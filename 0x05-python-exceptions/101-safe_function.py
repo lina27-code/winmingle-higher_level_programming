@@ -1,19 +1,20 @@
 #!/usr/bin/python3
+"""Module for safe_function function."""
 import sys
 
 
 def safe_function(fct, *args):
-    """Executes a function safely.
+    """Execute a function safely.
 
     Args:
-        fct: The function to execute.
-        *args: Arguments to pass to the function.
+        fct: Pointer to a function
+        *args: Arguments for the function
 
     Returns:
-        The result of the function, or None if an exception occurs.
+        The result of the function, None otherwise
     """
     try:
         return fct(*args)
-    except Exception as err:
-        sys.stderr.write(f"Exception: {err}\n")
+    except Exception as e:
+        print("Exception: {}".format(e), file=sys.stderr)
         return None
